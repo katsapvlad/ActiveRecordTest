@@ -30,23 +30,10 @@ end
 
 post '/visit' do
 
-	с = Client.new
+	с = Client.create params[:client]
+	#c.save
 
-	#@barbers = Barber.order "created_at DESC"
-	@username = params[:username]
-	@phone = params[:phone]
-	@datetime = params[:datetime]
-	@barber = params[:barber]
-	@color = params[:color]
-
-	client = Client.create (
-		:name => @username, 
-		:phone => @phone, 
-		:datestamp => @datetime,
-		:barber => @barber,
-		:color => @color
-	)
-
+	
 	erb "<h2>Вы записались!</h2>"
 
 end
