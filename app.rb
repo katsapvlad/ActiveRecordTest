@@ -7,7 +7,7 @@ require 'sinatra/activerecord'
 set :database, {adapter: "sqlite3", database: "barbershop.db"}
 
 class Client < ActiveRecord::Base
-		validates :name, presence: true
+		validates :name, presence: true, length: {minimum: 3}
 		validates :phone, presence: true
 		validates :datestamp, presence: true
 		validates :barber, presence: true
@@ -23,12 +23,12 @@ before do
 end
 
 get '/' do
-	@barbers = Barber.order "created_at DESC"
+	#@barbers = Barber.order "created_at DESC"
 	erb :index		
 end
 
 get '/visit' do
-	@barbers = Barber.order "created_at DESC"
+	#@barbers = Barber.order "created_at DESC"
 	@c = Client.new
 	erb :visit
 end
