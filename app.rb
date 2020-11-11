@@ -23,12 +23,10 @@ before do
 end
 
 get '/' do
-	#@barbers = Barber.order "created_at DESC"
 	erb :index		
 end
 
 get '/visit' do
-	#@barbers = Barber.order "created_at DESC"
 	@c = Client.new
 	erb :visit
 end
@@ -45,4 +43,8 @@ post '/visit' do
 		erb :visit
 	end
 	
+end
+
+get '/barber/:id' do
+	erb "<h2>Тут будет информация о парикмахерах</h2>"
 end
